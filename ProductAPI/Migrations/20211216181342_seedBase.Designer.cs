@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductAPI;
 
 namespace ProductAPI.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211216181342_seedBase")]
+    partial class seedBase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,7 +53,7 @@ namespace ProductAPI.Migrations
                             Id = 1,
                             CategoryName = "Appetizer",
                             Description = "Praesent scelerisque, mi sed ultrices condimentum, lacus ipsum viverra massa, in lobortis sapien eros in arcu. Quisque vel lacus ac magna vehicula sagittis ut non lacus.<br/>Sed volutpat tellus lorem, lacinia tincidunt tellus varius nec. Vestibulum arcu turpis, facilisis sed ligula ac, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                            ImageUrl = "https://vastagrestaurantstorage.blob.core.windows.net/vastag/14.jpg",
+                            ImageUrl = "https://dotnetmastery.blob.core.windows.net/mango/14.jpg",
                             Name = "Samosa",
                             Price = 15.0
                         },
@@ -60,7 +62,7 @@ namespace ProductAPI.Migrations
                             Id = 2,
                             CategoryName = "Appetizer",
                             Description = "Praesent scelerisque, mi sed ultrices condimentum, lacus ipsum viverra massa, in lobortis sapien eros in arcu. Quisque vel lacus ac magna vehicula sagittis ut non lacus.<br/>Sed volutpat tellus lorem, lacinia tincidunt tellus varius nec. Vestibulum arcu turpis, facilisis sed ligula ac, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                            ImageUrl = "https://vastagrestaurantstorage.blob.core.windows.net/vastag/12.jpg",
+                            ImageUrl = "https://dotnetmastery.blob.core.windows.net/mango/12.jpg",
                             Name = "Paneer Tikka",
                             Price = 13.99
                         },
@@ -69,7 +71,7 @@ namespace ProductAPI.Migrations
                             Id = 3,
                             CategoryName = "Dessert",
                             Description = "Praesent scelerisque, mi sed ultrices condimentum, lacus ipsum viverra massa, in lobortis sapien eros in arcu. Quisque vel lacus ac magna vehicula sagittis ut non lacus.<br/>Sed volutpat tellus lorem, lacinia tincidunt tellus varius nec. Vestibulum arcu turpis, facilisis sed ligula ac, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                            ImageUrl = "https://vastagrestaurantstorage.blob.core.windows.net/vastag/11.jpg",
+                            ImageUrl = "https://dotnetmastery.blob.core.windows.net/mango/11.jpg",
                             Name = "Sweet Pie",
                             Price = 10.99
                         },
@@ -78,7 +80,7 @@ namespace ProductAPI.Migrations
                             Id = 4,
                             CategoryName = "Entree",
                             Description = "Praesent scelerisque, mi sed ultrices condimentum, lacus ipsum viverra massa, in lobortis sapien eros in arcu. Quisque vel lacus ac magna vehicula sagittis ut non lacus.<br/>Sed volutpat tellus lorem, lacinia tincidunt tellus varius nec. Vestibulum arcu turpis, facilisis sed ligula ac, maximus malesuada neque. Phasellus commodo cursus pretium.",
-                            ImageUrl = "https://vastagrestaurantstorage.blob.core.windows.net/vastag/13.jpg",
+                            ImageUrl = "https://dotnetmastery.blob.core.windows.net/mango/13.jpg",
                             Name = "Pav Bhaji",
                             Price = 15.0
                         });
