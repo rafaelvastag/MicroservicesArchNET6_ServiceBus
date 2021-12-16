@@ -14,7 +14,8 @@ namespace ProductAPI.Config
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<ProductDTO, ProductEntity>().ReverseMap();
+                config.CreateMap<ProductEntity, ProductDTO>();
+                config.CreateMap<ProductDTO, ProductEntity>();
             });
             return mappingConfig;
         }

@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ProductAPI.Config;
+using ProductAPI.Repositories;
+using ProductAPI.Repositories.Impl;
 using System;
 
 namespace ProductAPI
@@ -28,6 +30,7 @@ namespace ProductAPI
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IProductRepository,ProductRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

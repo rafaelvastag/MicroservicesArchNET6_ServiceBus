@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductAPI.Repositories
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         Task<IEnumerable<ProductDTO>> GetProducts();
         Task<ProductDTO> GetProductById(int id);
