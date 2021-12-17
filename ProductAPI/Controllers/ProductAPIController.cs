@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProductAPI.Models.DTOs;
 using ProductAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Identity.Constants;
 
 namespace ProductAPI.Controllers
 {
@@ -18,7 +20,7 @@ namespace ProductAPI.Controllers
             _productRepository = productRepository;
             _response = new ResponseDTO();
         }
-        
+        [Authorize]
         [HttpGet]
         public async Task<object> Get()
         {
@@ -35,6 +37,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize]
         [HttpGet]
         [Route("{id}")]
         public async Task<object> Get(int id)
@@ -52,6 +55,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize(Roles = SD.Admin)]
         [HttpPost]
         public async Task<object> Post([FromBody] ProductDTO prod)
         {
@@ -68,6 +72,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize(Roles = SD.Admin)]
         [HttpPut]
         public async Task<object> Put([FromBody] ProductDTO prod)
         {
@@ -84,6 +89,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
+        [Authorize(Roles = SD.Admin)]
         [HttpDelete]
         [Route("{id}")]
         public async Task<object> Delete(int id)

@@ -1,9 +1,7 @@
-﻿using ProductAPI.Models.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Threading.Tasks;
 using Vastag.Web.Models;
+using Vastag.Web.Models.DTOs;
 
 namespace Vastag.Web.Services
 {
