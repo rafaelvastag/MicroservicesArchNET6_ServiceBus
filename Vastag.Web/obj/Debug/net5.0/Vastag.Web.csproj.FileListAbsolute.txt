@@ -399,3 +399,6 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\bin\Debug\
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\bin\Debug\net5.0\ProductAPI.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\bin\Debug\net5.0\ProductAPI.pdb
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Product\ProductIndex.cshtml.g.cs
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Product\ProductCreate.cshtml.g.cs
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Product\ProductEdit.cshtml.g.cs
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Product\ProductDelete.cshtml.g.cs

@@ -18,6 +18,7 @@ namespace Vastag.Web.Controllers
             _productService = productService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> ProductIndex()
         {
 
@@ -31,5 +32,81 @@ namespace Vastag.Web.Controllers
 
             return View(list);
         }
+
+        public IActionResult ProductCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductCreate(ProductDTO dto)
+        {
+            var response = await _productService.CreateProductAsync<ResponseDTO>(dto);
+
+            if (null != response && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(ProductIndex));
+            }
+
+            return View(dto);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ProductEdit(int id)
+        {      
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id);
+
+            if (null != response && response.IsSuccess)
+            {
+                ProductDTO p = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(response.Result));
+                return View(p);
+            }
+
+            return NotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductEdit(ProductDTO dto)
+        {
+            var response = await _productService.UpdateProductAsync<ResponseDTO>(dto);
+
+            if (null != response && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(ProductIndex));
+            }
+
+            return View(dto);
+        }
+
+        [HttpDelete]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ProductDelete(ProductDTO dto)
+        {
+            var response = await _productService.DeleteProductAsync<ResponseDTO>(dto.Id);
+
+            if (response.IsSuccess)
+            {
+                return RedirectToAction(nameof(ProductIndex));
+            }
+
+            return View(dto);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ProductDelete(int id)
+        {
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id);
+
+            if (null != response && response.IsSuccess)
+            {
+                ProductDTO p = JsonConvert.DeserializeObject<ProductDTO>(Convert.ToString(response.Result));
+                return View(p);
+            }
+
+            return NotFound();
+        }
+
     }
 }
