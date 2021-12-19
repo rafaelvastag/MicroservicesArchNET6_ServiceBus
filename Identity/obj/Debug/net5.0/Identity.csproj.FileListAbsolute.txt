@@ -408,3 +408,4 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\obj\Debug\ne
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\obj\Debug\net5.0\Identity.pdb
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\obj\Debug\net5.0\Identity.genruntimeconfig.cache
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\obj\Debug\net5.0\Identity.csproj.AssemblyReference.cache
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
