@@ -5,7 +5,6 @@ using ProductAPI.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Identity.Constants;
 
 namespace ProductAPI.Controllers
 {
@@ -55,7 +54,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
-        [Authorize(Roles = SD.Admin)]
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<object> Post([FromBody] ProductDTO prod)
         {
@@ -72,7 +71,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
-        [Authorize(Roles = SD.Admin)]
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         public async Task<object> Put([FromBody] ProductDTO prod)
         {
@@ -89,7 +88,7 @@ namespace ProductAPI.Controllers
             return _response;
         }
 
-        [Authorize(Roles = SD.Admin)]
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("{id}")]
         public async Task<object> Delete(int id)

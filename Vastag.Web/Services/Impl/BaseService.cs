@@ -63,6 +63,7 @@ namespace Vastag.Web.Services.Impl
                 {
                     DisplayMessage = "Error",
                     ErrorMessages = new List<string> { Convert.ToString(e.Message) },
+                    IsSuccess = false
                 };
 
                 var res = JsonConvert.SerializeObject(error);
