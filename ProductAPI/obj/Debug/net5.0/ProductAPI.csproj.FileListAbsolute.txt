@@ -10,6 +10,7 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Humanizer.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -61,4 +62,3 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\obj\Debug\
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\obj\Debug\net5.0\ref\ProductAPI.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\obj\Debug\net5.0\ProductAPI.pdb
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\obj\Debug\net5.0\ProductAPI.genruntimeconfig.cache
-C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ProductAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

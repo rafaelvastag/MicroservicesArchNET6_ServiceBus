@@ -1,5 +1,6 @@
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\appsettings.json
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\keys\is-signing-key-F1EF1D6176022E5D2E7F6D8F176EE8BB.json
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\Identity.StaticWebAssets.xml
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\Identity.exe
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Identity\bin\Debug\net5.0\Identity.deps.json

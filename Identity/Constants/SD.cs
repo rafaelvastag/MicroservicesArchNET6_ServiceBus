@@ -43,8 +43,8 @@ namespace Identity.Constants
                     ClientId="vastag",
                     ClientSecrets= { new Secret("secret".Sha256())},
                     AllowedGrantTypes = GrantTypes.Code,
-                    RedirectUris = {"https://localhost:45605/signin-oidc"},
-                    PostLogoutRedirectUris = {"https://localhost:45605/signout-callback-oidc"},
+                    RedirectUris = {"https://localhost:44368/signin-oidc"},
+                    PostLogoutRedirectUris = {"https://localhost:44368/signout-callback-oidc"},
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
