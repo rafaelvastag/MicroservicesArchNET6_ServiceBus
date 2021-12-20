@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,9 @@ namespace Vastag.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ProductIndex()
         {
-
             List<ProductDTO> list = new();
-            var response = await _productService.GetAllProductsAsync<ResponseDTO>();
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.GetAllProductsAsync<ResponseDTO>(accessToken);
 
             if (null != response && response.IsSuccess)
             {
@@ -41,7 +42,8 @@ namespace Vastag.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ProductCreate(ProductDTO dto)
         {
-            var response = await _productService.CreateProductAsync<ResponseDTO>(dto);
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.CreateProductAsync<ResponseDTO>(dto, accessToken);
 
             if (null != response && response.IsSuccess)
             {
@@ -53,8 +55,9 @@ namespace Vastag.Web.Controllers
 
         [HttpGet]
         public async Task<IActionResult> ProductEdit(int id)
-        {      
-            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id);
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id, accessToken);
 
             if (null != response && response.IsSuccess)
             {
@@ -69,7 +72,8 @@ namespace Vastag.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ProductEdit(ProductDTO dto)
         {
-            var response = await _productService.UpdateProductAsync<ResponseDTO>(dto);
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.UpdateProductAsync<ResponseDTO>(dto, accessToken);
 
             if (null != response && response.IsSuccess)
             {
@@ -83,7 +87,8 @@ namespace Vastag.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ProductDelete(ProductDTO dto)
         {
-            var response = await _productService.DeleteProductAsync<ResponseDTO>(dto.Id);
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.DeleteProductAsync<ResponseDTO>(dto.Id, accessToken);
 
             if (response.IsSuccess)
             {
@@ -96,7 +101,8 @@ namespace Vastag.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> ProductDelete(int id)
         {
-            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id);
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var response = await _productService.GetProductByIdAsync<ResponseDTO>(id, accessToken);
 
             if (null != response && response.IsSuccess)
             {

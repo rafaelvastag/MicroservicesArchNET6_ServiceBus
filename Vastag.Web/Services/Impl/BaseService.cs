@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Vastag.Web.Models;
@@ -36,6 +37,11 @@ namespace Vastag.Web.Services.Impl
                     message.Content = new StringContent(JsonConvert.SerializeObject(request.Data),
                         encoding: Encoding.UTF8,
                         mediaType: "application/json");
+                }
+
+                if (!string.IsNullOrEmpty(request.AccessToken))
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", request.AccessToken);
                 }
 
                 HttpResponseMessage response = null;

@@ -17,55 +17,55 @@ namespace Vastag.Web.Services.Impl
             _clientFactory = clientFactory;
         }
 
-        public async Task<T> CreateProductAsync<T>(ProductDTO dto)
+        public async Task<T> CreateProductAsync<T>(ProductDTO dto, string token)
         {
             return await this.SendAsync<T>( new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.POST,
                 Data = dto,
                 Url = Constants.SD.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> DeleteProductAsync<T>(int id)
+        public async Task<T> DeleteProductAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.DELETE,
                 Url = Constants.SD.ProductAPIBase + "/api/products/" + id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetAllProductsAsync<T>()
+        public async Task<T> GetAllProductsAsync<T>(string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.GET,
                 Url = Constants.SD.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> GetProductByIdAsync<T>(int id)
+        public async Task<T> GetProductByIdAsync<T>(int id, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.GET,
                 Url = Constants.SD.ProductAPIBase + "/api/products/" + id,
-                AccessToken = ""
+                AccessToken = token
             });
         }
 
-        public async Task<T> UpdateProductAsync<T>(ProductDTO dto)
+        public async Task<T> UpdateProductAsync<T>(ProductDTO dto, string token)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.PUT,
                 Data = dto,
                 Url = Constants.SD.ProductAPIBase + "/api/products",
-                AccessToken = ""
+                AccessToken = token
             });
         }
     }
