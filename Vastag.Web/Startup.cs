@@ -1,13 +1,10 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Vastag.Web.Services;
 using Vastag.Web.Services.Impl;
 
@@ -26,26 +23,30 @@ namespace Vastag.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IProductService, ProductService>();
+            services.AddHttpClient<ICartService, CartService>();
             Constants.SD.ProductAPIBase = Configuration["ServicesUrl:ProductAPI"];
+            Constants.SD.ShoppingCartAPIBase = Configuration["ServicesUrl:ShoppingCartAPI"];
 
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICartService, CartService>();
             services.AddControllersWithViews();
 
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = "Cookies";
                 options.DefaultChallengeScheme = "oidc";
-            }).AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10)).AddOpenIdConnect("oidc", options =>
+            }).AddCookie("Cookies", c => c.ExpireTimeSpan = TimeSpan.FromMinutes(10))
+            .AddOpenIdConnect("oidc", options =>
             {
                 options.Authority = Configuration["ServicesUrl:IdentityAPI"];
                 options.GetClaimsFromUserInfoEndpoint = true;
                 options.ClientId = "vastag";
                 options.ClientSecret = "secret";
                 options.ResponseType = "code";
-
+                options.ClaimActions.MapJsonKey("role", "role", "role");
+                options.ClaimActions.MapJsonKey("sub", "sub", "sub");
                 options.TokenValidationParameters.NameClaimType = "name";
                 options.TokenValidationParameters.RoleClaimType = "role";
-
                 options.Scope.Add("vastag");
                 options.SaveTokens = true;
             });

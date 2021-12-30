@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Vastag.Web.Constants
+﻿namespace Vastag.Web.Constants
 {
     public static class SD
     {
         public static string ProductAPIBase { get; set; }
+
+        public static string ShoppingCartAPIBase { get; set; }
 
         public enum ApiType
         {
