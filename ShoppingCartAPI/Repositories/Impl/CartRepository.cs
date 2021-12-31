@@ -104,7 +104,7 @@ namespace ShoppingCartAPI.Repositories.Impl
             try
             {
                 CartDetails cartDetails = await _db.CartDetails
-                    .FirstOrDefaultAsync(u => u.Id == cartDetailsId);
+                    .FirstOrDefaultAsync(u => u.CartDetailsId == cartDetailsId);
 
                 int totalCountOfCartItems = _db.CartDetails
                     .Where(u => u.CartHeaderId == cartDetails.CartHeaderId).Count();

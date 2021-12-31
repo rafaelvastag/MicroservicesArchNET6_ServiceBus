@@ -69,8 +69,8 @@ namespace ShoppingCartAPI.Controllers
             return _response;
         }
 
-        [HttpPost("RemoveCart")]
-        public async Task<object> RemoveCart([FromBody] int cartId)
+        [HttpDelete("RemoveCart/{cartId}")]
+        public async Task<object> RemoveCart(int cartId)
         {
             try
             {

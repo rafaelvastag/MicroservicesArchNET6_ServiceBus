@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -48,6 +49,20 @@ namespace Vastag.Web.Controllers
             }
 
             return cart;
+        }
+
+        public async Task<IActionResult> Remove(int cartDetailsId)
+        {
+            var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var response = await _cartService.RemoveFromCartAsync<ResponseDTO>(cartDetailsId, accessToken);
+
+            if (response != null && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(CartIndex));
+            }
+            return RedirectToAction(nameof(CartIndex));
         }
     }
 }

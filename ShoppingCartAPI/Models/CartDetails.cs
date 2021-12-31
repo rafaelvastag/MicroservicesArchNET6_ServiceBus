@@ -4,7 +4,7 @@ namespace ShoppingCartAPI.Models
 {
     public class CartDetails
     {
-        public int Id { get; set; }
+        public int CartDetailsId { get; set; }
         public int CartHeaderId { get; set; }
         [ForeignKey("CartHeaderId")]
         public virtual CartHeader CartHeader { get; set; }
