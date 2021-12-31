@@ -24,9 +24,12 @@ namespace Vastag.Web
         {
             services.AddHttpClient<IProductService, ProductService>();
             services.AddHttpClient<ICartService, CartService>();
+            services.AddHttpClient<ICouponService, CouponService>();
             Constants.SD.ProductAPIBase = Configuration["ServicesUrl:ProductAPI"];
             Constants.SD.ShoppingCartAPIBase = Configuration["ServicesUrl:ShoppingCartAPI"];
+            Constants.SD.CouponAPIBase = Configuration["ServicesUrl:CouponAPI"];
 
+            services.AddScoped<ICouponService, CouponService>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICartService, CartService>();
             services.AddControllersWithViews();

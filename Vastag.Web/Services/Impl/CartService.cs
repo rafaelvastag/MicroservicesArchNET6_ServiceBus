@@ -27,12 +27,33 @@ namespace Vastag.Web.Services.Impl
             });
         }
 
+        public async Task<T> ApplyCouponAsync<T>(CartDTO cartDTO, string token = null)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = Constants.SD.ApiType.POST,
+                Data = cartDTO,
+                Url = Constants.SD.ShoppingCartAPIBase + "/api/cart/ApplyCoupon",
+                AccessToken = token
+            });
+        }
+
         public async Task<T> GetCartByUserIdAsync<T>(string userId, string token = null)
         {
             return await this.SendAsync<T>(new ApiRequest()
             {
                 ApiType = Constants.SD.ApiType.GET,
                 Url = Constants.SD.ShoppingCartAPIBase + "/api/cart/GetCart/" + userId,
+                AccessToken = token
+            });
+        }
+
+        public async Task<T> RemoveCouponAsync<T>(string userId, string token = null)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = Constants.SD.ApiType.DELETE,
+                Url = Constants.SD.ShoppingCartAPIBase + "/api/cart/RemoveCoupon/" + userId,
                 AccessToken = token
             });
         }

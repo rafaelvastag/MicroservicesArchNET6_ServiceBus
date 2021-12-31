@@ -15,16 +15,49 @@ namespace Vastag.Web.Controllers
 
         private readonly IProductService _productService;
         private readonly ICartService _cartService;
+        private readonly ICouponService _couponService;
 
-        public CartController(IProductService productService, ICartService cartService)
+        public CartController(IProductService productService, ICartService cartService, ICouponService couponService)
         {
             _productService = productService;
             _cartService = cartService;
+            _couponService = couponService;
         }
 
         public async Task<IActionResult> CartIndex()
         {
             return View(await GetCartBasedOnLoggedUser());
+        }
+
+        [HttpPost]
+        [ActionName("ApplyCoupon")]
+        public async Task<IActionResult> ApplyCoupon(CartDTO cart)
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var response = await _cartService.ApplyCouponAsync<ResponseDTO>(cart, accessToken);
+
+            if (response != null && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(CartIndex));
+            }
+            return RedirectToAction(nameof(CartIndex));
+        }
+
+        [HttpPost]
+        [ActionName("RemoveCoupon")]
+        public async Task<IActionResult> RemoveCoupon()
+        {
+            var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var response = await _cartService.RemoveCouponAsync<ResponseDTO>(userId, accessToken);
+
+            if (response != null && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(CartIndex));
+            }
+            return RedirectToAction(nameof(CartIndex));
         }
 
         private async Task<CartDTO> GetCartBasedOnLoggedUser()
@@ -42,10 +75,22 @@ namespace Vastag.Web.Controllers
             }
             if (cart.CartHeader != null)
             {
+
+                if (!string.IsNullOrEmpty(cart.CartHeader.CouponCode))
+                {
+                    var coupon = await _couponService.GetCouponDetails<ResponseDTO>(cart.CartHeader.CouponCode,accessToken);
+                    if (coupon != null && coupon.IsSuccess)
+                    {
+                        var couponResult = JsonConvert.DeserializeObject<CouponDTO>(Convert.ToString(coupon.Result));
+                        cart.CartHeader.DiscountTotal = couponResult.DiscountAmount;
+                    }
+                }
+
                 foreach (var item in cart.CartDetails)
                 {
                     cart.CartHeader.OrderTotal += (item.Product.Price * item.Count);
                 }
+                cart.CartHeader.OrderTotal -= cart.CartHeader.DiscountTotal;
             }
 
             return cart;
@@ -63,6 +108,12 @@ namespace Vastag.Web.Controllers
                 return RedirectToAction(nameof(CartIndex));
             }
             return RedirectToAction(nameof(CartIndex));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Checkout()
+        {
+            return View(await GetCartBasedOnLoggedUser());
         }
     }
 }

@@ -1,6 +1,8 @@
 using AutoMapper;
 using CouponAPI.Config;
 using CouponAPI.Context;
+using CouponAPI.Repositories;
+using CouponAPI.Repositories.Impl;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,7 +37,7 @@ namespace CouponAPI
                             options.UseSqlServer(Configuration.GetConnectionString("CouponAPIConnectionString")));
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
-            // services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<ICouponRepository, CouponRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>

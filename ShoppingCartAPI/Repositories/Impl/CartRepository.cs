@@ -21,6 +21,21 @@ namespace ShoppingCartAPI.Repositories.Impl
             _db = db;
             _mapper = mapper;
         }
+
+        public async Task<bool> ApplyCoupon(string userId, string couponCode)
+        {
+            var cartFromDb = await _db.CartHeaders.FirstOrDefaultAsync(c => c.UserId == userId);
+            if (cartFromDb != null)
+            {
+                cartFromDb.CouponCode = couponCode;
+                _db.CartHeaders.Update(cartFromDb);
+                await _db.SaveChangesAsync();
+                return true;
+
+            }
+            return false;
+        }
+
         public async Task<bool> ClearCart(string userId)
         {
             var cartHeaderFromDb = await _db.CartHeaders.FirstOrDefaultAsync(u => u.UserId == userId);
@@ -124,6 +139,20 @@ namespace ShoppingCartAPI.Repositories.Impl
             {
                 return false;
             }
+        }
+
+        public async Task<bool> RemoveCoupon(string userId)
+        {
+            var cartFromDb = await _db.CartHeaders.FirstOrDefaultAsync(c => c.UserId == userId);
+            if (cartFromDb != null)
+            {
+                cartFromDb.CouponCode = "";
+                _db.CartHeaders.Update(cartFromDb);
+                await _db.SaveChangesAsync();
+                return true;
+
+            }
+            return false;
         }
     }
 }
