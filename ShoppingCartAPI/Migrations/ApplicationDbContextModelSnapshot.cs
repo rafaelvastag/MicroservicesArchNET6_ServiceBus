@@ -45,7 +45,7 @@ namespace ShoppingCartAPI.Migrations
 
             modelBuilder.Entity("ShoppingCartAPI.Models.CartHeader", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CartHeaderId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -56,7 +56,7 @@ namespace ShoppingCartAPI.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("CartHeaderId");
 
                     b.ToTable("CartHeaders");
                 });

@@ -42,7 +42,7 @@ namespace ShoppingCartAPI.Repositories.Impl
             if (cartHeaderFromDb != null)
             {
                 _db.CartDetails
-                    .RemoveRange(_db.CartDetails.Where(u => u.CartHeaderId == cartHeaderFromDb.Id));
+                    .RemoveRange(_db.CartDetails.Where(u => u.CartHeaderId == cartHeaderFromDb.CartHeaderId));
                 _db.CartHeaders.Remove(cartHeaderFromDb);
                 await _db.SaveChangesAsync();
                 return true;
@@ -72,7 +72,7 @@ namespace ShoppingCartAPI.Repositories.Impl
                 _db.CartHeaders.Add(cart.CartHeader);
                 await _db.SaveChangesAsync();
 
-                cart.CartDetails.FirstOrDefault().CartHeaderId = cart.CartHeader.Id;
+                cart.CartDetails.FirstOrDefault().CartHeaderId = cart.CartHeader.CartHeaderId;
                 _db.CartDetails.Add(cart.CartDetails.FirstOrDefault());
                 await _db.SaveChangesAsync();
             }
@@ -80,11 +80,11 @@ namespace ShoppingCartAPI.Repositories.Impl
             {
                 var cartDetailsFromDb = await _db.CartDetails.AsNoTracking().FirstOrDefaultAsync(
                     u => u.ProductId == cart.CartDetails.FirstOrDefault().ProductId 
-                    && u.CartHeaderId == cartHeaderFromDb.Id);
+                    && u.CartHeaderId == cartHeaderFromDb.CartHeaderId);
 
                 if (cartDetailsFromDb == null)
                 {
-                    cart.CartDetails.FirstOrDefault().CartHeaderId = cartHeaderFromDb.Id;
+                    cart.CartDetails.FirstOrDefault().CartHeaderId = cartHeaderFromDb.CartHeaderId;
                     cart.CartDetails.FirstOrDefault().Product = null;
 
                     _db.CartDetails.Add(cart.CartDetails.FirstOrDefault());
@@ -109,7 +109,7 @@ namespace ShoppingCartAPI.Repositories.Impl
             };
 
             cart.CartDetails = _db.CartDetails
-                .Where(u => u.CartHeaderId == cart.CartHeader.Id).Include(u => u.Product);
+                .Where(u => u.CartHeaderId == cart.CartHeader.CartHeaderId).Include(u => u.Product);
 
             return _mapper.Map<CartDTO>(cart);
         }
@@ -128,7 +128,7 @@ namespace ShoppingCartAPI.Repositories.Impl
                 if (totalCountOfCartItems == 1)
                 {
                     var cartHeaderToRemove = await _db.CartHeaders
-                        .FirstOrDefaultAsync(u => u.Id == cartDetails.CartHeaderId);
+                        .FirstOrDefaultAsync(u => u.CartHeaderId == cartDetails.CartHeaderId);
 
                     _db.CartHeaders.Remove(cartHeaderToRemove);
                 }
