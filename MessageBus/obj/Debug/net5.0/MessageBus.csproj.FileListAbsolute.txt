@@ -1,0 +1,11 @@
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\bin\Debug\net5.0\MessageBus.deps.json
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\bin\Debug\net5.0\MessageBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\bin\Debug\net5.0\ref\MessageBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\bin\Debug\net5.0\MessageBus.pdb
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.AssemblyInfoInputs.cache
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.AssemblyInfo.cs
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.csproj.CoreCompileInputs.cache
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\ref\MessageBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.pdb

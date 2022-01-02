@@ -63,3 +63,11 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\obj\D
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\obj\Debug\net5.0\ref\ShoppingCartAPI.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\obj\Debug\net5.0\ShoppingCartAPI.pdb
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\obj\Debug\net5.0\ShoppingCartAPI.genruntimeconfig.cache
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\Azure.Core.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\Azure.Core.Amqp.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\Azure.Messaging.ServiceBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\Microsoft.Azure.Amqp.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\System.Memory.Data.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\MessageBus.dll
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\ShoppingCartAPI\bin\Debug\net5.0\MessageBus.pdb

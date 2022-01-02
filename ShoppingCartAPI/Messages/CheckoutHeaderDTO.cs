@@ -1,4 +1,5 @@
-﻿using ShoppingCartAPI.Models.DTOs;
+﻿using MessageBus;
+using ShoppingCartAPI.Models.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShoppingCartAPI.Messages
 {
-    public class CheckoutHeaderDTO
+    public class CheckoutHeaderDTO : BaseMessage
     {
         public int Id { get; set; }
         public string UserId { get; set; }

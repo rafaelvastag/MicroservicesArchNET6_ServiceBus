@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MessageBus;
+using Microsoft.AspNetCore.Mvc;
 using ShoppingCartAPI.Messages;
 using ShoppingCartAPI.Models.DTOs;
 using ShoppingCartAPI.Repositories.Impl;
@@ -14,12 +15,14 @@ namespace ShoppingCartAPI.Controllers
     public class CartController : Controller
     {
         private readonly ICartRepository _cartRepository;
+        private readonly IMessageBus _messageBus;
         protected ResponseDTO _response;
 
-        public CartController(ICartRepository cartRepository)
+        public CartController(ICartRepository cartRepository, IMessageBus messageBus)
         {
             _cartRepository = cartRepository;
             _response = new ResponseDTO();
+            _messageBus = messageBus;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -133,7 +136,7 @@ namespace ShoppingCartAPI.Controllers
 
                 checkoutHeader.CartDetails = cart.CartDetails;
                 // logic to add message to process order
-
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutmessagetopic");
 
             }
             catch (Exception ex)
