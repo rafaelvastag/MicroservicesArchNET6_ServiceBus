@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "BBdntZF1PNGGnDWMeUUh/myLR05QvCnnZfxLgXC4nmJ2f7ckvDOAGBdb+iNkIPNT+PtKi16X2mqWjCUFl1q/zg==",
+  "dgSpecHash": "Yq8r6DUwFPJEOXev8L63syHDS9Y+gCXuEepTtTdj/UdRxiMvNtYmB3M8A6cyrIDOAHdixcKNCl6TDxoio88ymA==",
   "success": true,
   "projectFilePath": "C:\\Users\\rgvas\\source\\repos\\VastagRestaurantWithAzureTools\\Vastag.Web\\Vastag.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rgvas\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\rgvas\\.nuget\\packages\\jquery\\2.0.0\\jquery.2.0.0.nupkg.sha512",
+    "C:\\Users\\rgvas\\.nuget\\packages\\jquery.ui.combined\\1.13.0\\jquery.ui.combined.1.13.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
@@ -132,5 +134,16 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "jQuery.UI.Combined 1.13.0 depends on jQuery (>= 1.13.0) but jQuery 1.13.0 was not found. An approximate best match of jQuery 2.0.0 was resolved.",
+      "libraryId": "jQuery",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

@@ -14,5 +14,6 @@ namespace Vastag.Web.Services
         Task<T> RemoveFromCartAsync<T>(int cartId, string token = null);
         Task<T> ApplyCouponAsync<T>(CartDTO cartDTO, string token = null);
         Task<T> RemoveCouponAsync<T>(string userId, string token = null);
+        Task<T> Checkout<T>(CartHeaderDTO cartHeader, string token = null);
     }
 }

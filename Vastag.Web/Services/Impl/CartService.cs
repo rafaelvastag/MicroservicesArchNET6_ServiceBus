@@ -38,6 +38,17 @@ namespace Vastag.Web.Services.Impl
             });
         }
 
+        public async Task<T> Checkout<T>(CartHeaderDTO cartHeader, string token = null)
+        {
+            return await this.SendAsync<T>(new ApiRequest()
+            {
+                ApiType = Constants.SD.ApiType.POST,
+                Data = cartHeader,
+                Url = Constants.SD.ShoppingCartAPIBase + "/api/cart/Checkout",
+                AccessToken = token
+            });
+        }
+
         public async Task<T> GetCartByUserIdAsync<T>(string userId, string token = null)
         {
             return await this.SendAsync<T>(new ApiRequest()

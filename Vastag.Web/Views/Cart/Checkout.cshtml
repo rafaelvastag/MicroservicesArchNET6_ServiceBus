@@ -122,7 +122,8 @@
 @section Scripts {
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#datetimepicker1').data("DateTimePicker");
+        $('.form_datetime').datetimepicker({ format: 'yyyy-mm-dd hh:ii' });
+        $('.form_datetime').datetimepicker({ 'setStartDate', new Date()});
     });
 </script>
 }

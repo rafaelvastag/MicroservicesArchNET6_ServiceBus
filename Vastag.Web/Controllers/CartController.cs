@@ -115,5 +115,26 @@ namespace Vastag.Web.Controllers
         {
             return View(await GetCartBasedOnLoggedUser());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Checkout(CartDTO cart)
+        {
+            var userId = User.Claims.Where(u => u.Type == "sub")?.FirstOrDefault()?.Value;
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var response = await _cartService.Checkout<ResponseDTO>(cart.CartHeader, accessToken);
+
+            if (response != null && response.IsSuccess)
+            {
+                return RedirectToAction(nameof(Confirmation));
+            }
+            return RedirectToAction(nameof(CartIndex));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Confirmation()
+        {
+            return View();
+        }
     }
 }

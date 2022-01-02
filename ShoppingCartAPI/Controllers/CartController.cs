@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShoppingCartAPI.Messages;
 using ShoppingCartAPI.Models.DTOs;
 using ShoppingCartAPI.Repositories.Impl;
 using System;
@@ -108,6 +109,32 @@ namespace ShoppingCartAPI.Controllers
             {
                 bool isSuccess = await _cartRepository.RemoveCoupon(userId);
                 _response.Result = isSuccess;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string>() { ex.ToString() };
+            }
+            return _response;
+
+        }
+
+        [HttpPost("Checkout")]
+        public async Task<object> Checkout([FromBody] CheckoutHeaderDTO checkoutHeader)
+        {
+            try
+            {
+                CartDTO cart = await _cartRepository.GetCartByUserId(checkoutHeader.UserId);
+
+                if (cart == null)
+                {
+                    return BadRequest();
+                }
+
+                checkoutHeader.CartDetails = cart.CartDetails;
+                // logic to add message to process order
+
+
             }
             catch (Exception ex)
             {

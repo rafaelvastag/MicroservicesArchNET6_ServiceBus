@@ -40,6 +40,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "5.0.10",
           "Newtonsoft.Json": "13.0.1",
           "System.IdentityModel.Tokens.Jwt": "6.15.0",
+          "jQuery.UI.Combined": "1.13.0",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "5.0.0.0",
@@ -335,6 +336,12 @@
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
+        }
+      },
+      "jQuery/2.0.0": {},
+      "jQuery.UI.Combined/1.13.0": {
+        "dependencies": {
+          "jQuery": "2.0.0"
         }
       },
       "Microsoft.AspNetCore.Authentication/2.2.0": {
@@ -3254,6 +3261,20 @@
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "jQuery/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-u3YiE0QnFnBExPkBPqWr2EVd8nh01iQlMWPRfa7b1fQ53YuMtHw+Y9oaJukHtEHaMpyL0PJzq69y3/5AxWogGA==",
+      "path": "jquery/2.0.0",
+      "hashPath": "jquery.2.0.0.nupkg.sha512"
+    },
+    "jQuery.UI.Combined/1.13.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qV/9Xqn3lGMYi7+WGCT0mFMvuWI9x3YldIY6gVWAT0qX64ww/lMw7O/5FOPHtM3oPQ5Nw9zo0hnNHUSZKEFCRQ==",
+      "path": "jquery.ui.combined/1.13.0",
+      "hashPath": "jquery.ui.combined.1.13.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication/2.2.0": {
       "type": "package",

@@ -394,3 +394,4 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Cart\CartIndex.cshtml.g.cs
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Vastag.Web.csproj.AssemblyReference.cache
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Cart\Checkout.cshtml.g.cs
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\Vastag.Web\obj\Debug\net5.0\Razor\Views\Cart\Confirmation.cshtml.g.cs
