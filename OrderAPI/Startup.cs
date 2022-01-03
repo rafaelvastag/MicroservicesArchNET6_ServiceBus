@@ -7,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using OrderAPI.Context;
+using OrderAPI.Extensions;
+using OrderAPI.Messaging;
 using OrderAPI.Repositories;
 using OrderAPI.Repositories.Impl;
 using System;
@@ -37,6 +39,7 @@ namespace OrderAPI
             optionBuilder.UseSqlServer(Configuration.GetConnectionString("OrderAPIConnectionString"));
 
             services.AddSingleton(new OrderRepository(optionBuilder.Options));
+            services.AddSingleton<IAzureServiceBusConsumer,AzureServiceBusConsumer>();
             services.AddControllers();
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
             {
@@ -104,6 +107,7 @@ namespace OrderAPI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseAzureServiceBusConsumer();
 
             app.UseEndpoints(endpoints =>
             {

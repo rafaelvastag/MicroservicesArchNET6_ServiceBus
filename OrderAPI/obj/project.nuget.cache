@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xAPo7P8uQVBaDs5Ddj8kVmeJ/YkwUe52HpQeO2EvOx/1m7UPX6Ofowd2g6nOos8tm51HK8IGBaptK79lAf1blA==",
+  "dgSpecHash": "OgSQ5U1w0Q+BDnMfPD+yurMC7AdGIzOa4W5SMunGvItX10I980ZBZNrChyKKbX83718s3/3aTQus4JYlsOHj3g==",
   "success": true,
   "projectFilePath": "C:\\Users\\rgvas\\source\\repos\\VastagRestaurantWithAzureTools\\OrderAPI\\OrderAPI.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.primitives\\4.0.1\\microsoft.win32.primitives.4.0.1.nupkg.sha512",
     "C:\\Users\\rgvas\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\rgvas\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\rgvas\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.net.http\\4.0.1\\runtime.native.system.net.http.4.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.native.system.security.cryptography\\4.0.0\\runtime.native.system.security.cryptography.4.0.0.nupkg.sha512",

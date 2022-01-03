@@ -67,3 +67,4 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\OrderAPI\obj\Debug\ne
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\OrderAPI\obj\Debug\net5.0\OrderAPI.pdb
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\OrderAPI\obj\Debug\net5.0\OrderAPI.genruntimeconfig.cache
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\OrderAPI\obj\Debug\net5.0\OrderAPI.csproj.AssemblyReference.cache
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\OrderAPI\bin\Debug\net5.0\Newtonsoft.Json.dll
