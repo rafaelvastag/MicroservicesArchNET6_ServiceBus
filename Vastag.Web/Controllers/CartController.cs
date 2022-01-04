@@ -124,6 +124,12 @@ namespace Vastag.Web.Controllers
 
             var response = await _cartService.Checkout<ResponseDTO>(cart.CartHeader, accessToken);
 
+            if (response != null && !response.IsSuccess)
+            {
+                TempData["Error"] = response.DisplayMessage;
+                return RedirectToAction(nameof(Checkout));
+            }
+
             if (response != null && response.IsSuccess)
             {
                 return RedirectToAction(nameof(Confirmation));

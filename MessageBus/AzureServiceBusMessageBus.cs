@@ -16,7 +16,7 @@ namespace MessageBus
         {
             await using var client = new ServiceBusClient(connectionAzureBus);
 
-            ServiceBusSender sender = client.CreateSender("checkoutmessagetopic");
+            ServiceBusSender sender = client.CreateSender(topic);
 
             var jsonMessage = JsonConvert.SerializeObject(message);
             ServiceBusMessage finalMessage = new ServiceBusMessage(Encoding.UTF8.GetBytes(jsonMessage)) {

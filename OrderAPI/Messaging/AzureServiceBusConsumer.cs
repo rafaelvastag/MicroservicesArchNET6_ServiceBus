@@ -1,4 +1,5 @@
 ﻿using Azure.Messaging.ServiceBus;
+using MessageBus;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using OrderAPI.Models;
@@ -17,12 +18,16 @@ namespace OrderAPI.Messaging
         private readonly string serviceBusConnectionString;
         private readonly string subscriptionCheckout;
         private readonly string checkoutMessageTopic;
+        private readonly string orderPaymentProcessTopic;
+        private readonly string orderPaymentUpdateResultTopic;
 
         private ServiceBusProcessor checkoutProcessor;
+        private ServiceBusProcessor orderPaymentProcessor;
+        private IMessageBus _messageBus;
 
         private readonly IConfiguration _configuration;
 
-        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration)
+        public AzureServiceBusConsumer(OrderRepository orderRepository, IConfiguration configuration, IMessageBus messageBus)
         {
             _orderRepository = orderRepository;
             _configuration = configuration;
@@ -30,9 +35,13 @@ namespace OrderAPI.Messaging
             serviceBusConnectionString = _configuration.GetValue<string>("ServiceBusConnectionString");
             subscriptionCheckout = _configuration.GetValue<string>("SubscriptionCheckout");
             checkoutMessageTopic = _configuration.GetValue<string>("CheckoutMessageTopic");
+            orderPaymentProcessTopic = _configuration.GetValue<string>("OrderPaymentProcessTopic");
+            orderPaymentUpdateResultTopic = _configuration.GetValue<string>("OrderPaymentUpdateResultTopic");
 
             var client = new ServiceBusClient(serviceBusConnectionString);
             checkoutProcessor = client.CreateProcessor(checkoutMessageTopic, subscriptionCheckout);
+            orderPaymentProcessor = client.CreateProcessor(orderPaymentUpdateResultTopic, subscriptionCheckout);
+            _messageBus = messageBus;
         }
 
         public async Task Start()
@@ -41,13 +50,20 @@ namespace OrderAPI.Messaging
             checkoutProcessor.ProcessErrorAsync += ErrorHander;
 
             await checkoutProcessor.StartProcessingAsync();
+
+            orderPaymentProcessor.ProcessMessageAsync += OnOrderPaymentStatusMessageReceived;
+            orderPaymentProcessor.ProcessErrorAsync += ErrorHander;
+
+            await orderPaymentProcessor.StartProcessingAsync();
         }
 
         public async Task Stop()
         {
-
             await checkoutProcessor.StopProcessingAsync();
             await checkoutProcessor.DisposeAsync();
+
+            await orderPaymentProcessor.StopProcessingAsync();
+            await orderPaymentProcessor.DisposeAsync();
         }
 
         Task ErrorHander(ProcessErrorEventArgs args)
@@ -94,6 +110,38 @@ namespace OrderAPI.Messaging
                 orderHeader.OrderDetails.Add(orderDetail);
             }
             await _orderRepository.AddOrder(orderHeader);
+
+            PaymentRequestMessage paymentRequestMessage = new()
+            {
+                Name = orderHeader.FirstName + " " + orderHeader.LastName,
+                OrderId = orderHeader.OrderHeaderId,
+                CardNumber = orderHeader.CardNumber,
+                CVV = orderHeader.CVV,
+                ExpiryMonthYear = orderHeader.ExpiryMonthYear,
+                OrderTotal = orderHeader.OrderTotal
+            };
+
+            try
+            {
+                await _messageBus.PublishMessage(paymentRequestMessage, orderPaymentProcessTopic);
+                await args.CompleteMessageAsync(args.Message);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private async Task OnOrderPaymentStatusMessageReceived(ProcessMessageEventArgs args)
+        {
+            var message = args.Message;
+            var body = Encoding.UTF8.GetString(message.Body);
+
+            UpdatePaymentResultMessage result = JsonConvert.DeserializeObject<UpdatePaymentResultMessage>(body);
+
+            await _orderRepository.UpdateOrderPaymentStatus(result.OrderId, result.Status);
+            await args.CompleteMessageAsync(args.Message);
         }
     }
 }

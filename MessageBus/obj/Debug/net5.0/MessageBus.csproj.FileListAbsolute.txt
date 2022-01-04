@@ -9,3 +9,4 @@ C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\ref\MessageBus.dll
 C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.pdb
+C:\Users\rgvas\source\repos\VastagRestaurantWithAzureTools\MessageBus\obj\Debug\net5.0\MessageBus.csproj.AssemblyReference.cache

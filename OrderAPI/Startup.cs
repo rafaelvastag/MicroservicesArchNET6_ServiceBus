@@ -1,3 +1,4 @@
+using MessageBus;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,7 @@ namespace OrderAPI
 
             services.AddSingleton(new OrderRepository(optionBuilder.Options));
             services.AddSingleton<IAzureServiceBusConsumer,AzureServiceBusConsumer>();
+            services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
             services.AddControllers();
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
             {

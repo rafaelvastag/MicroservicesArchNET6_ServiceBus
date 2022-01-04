@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ShoppingCartAPI.Messages;
 using ShoppingCartAPI.Models.DTOs;
+using ShoppingCartAPI.Repositories;
 using ShoppingCartAPI.Repositories.Impl;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,17 @@ namespace ShoppingCartAPI.Controllers
     [Route("api/cart")]
     public class CartController : Controller
     {
+        private readonly ICouponRepository _couponRepository;
         private readonly ICartRepository _cartRepository;
         private readonly IMessageBus _messageBus;
         protected ResponseDTO _response;
 
-        public CartController(ICartRepository cartRepository, IMessageBus messageBus)
+        public CartController(ICartRepository cartRepository, IMessageBus messageBus, ICouponRepository couponRepository)
         {
             _cartRepository = cartRepository;
             _response = new ResponseDTO();
             _messageBus = messageBus;
+            _couponRepository = couponRepository;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -132,6 +135,20 @@ namespace ShoppingCartAPI.Controllers
                 if (cart == null)
                 {
                     return BadRequest();
+                }
+
+                if (!string.IsNullOrEmpty(checkoutHeader.CouponCode))
+                {
+                    CouponDTO coupon = await _couponRepository.GetCoupon(checkoutHeader.CouponCode);
+
+                    if (checkoutHeader.DiscountTotal != coupon.DiscountAmount)
+                    {
+                        _response.IsSuccess = false;
+                        _response.ErrorMessages = new List<string>() { "Coupon price has changed, please confirm" };
+                        _response.DisplayMessage = "Coupon Price has changed, please confirm";
+
+                        return _response;
+                    }
                 }
 
                 checkoutHeader.CartDetails = cart.CartDetails;

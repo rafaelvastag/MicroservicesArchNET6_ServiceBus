@@ -36,6 +36,7 @@
           "AutoMapper": "10.1.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "8.1.1",
           "Azure.Messaging.ServiceBus": "7.5.1",
+          "MessageBus": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.10",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.10",
@@ -1585,6 +1586,18 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "MessageBus/1.0.0": {
+        "dependencies": {
+          "Azure.Messaging.ServiceBus": "7.5.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "MessageBus.dll": {}
+        },
+        "compile": {
+          "MessageBus.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -4155,6 +4168,11 @@
       "sha512": "sha512-VShQJhOxgD/5M2Z1IWm1vMaSqlbjo1zdFf8H7Ahte6bTvSUhUko/gDpAVVhGgGgTDeue4QyNg1fu1Zz2GKSEuQ==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "MessageBus/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",

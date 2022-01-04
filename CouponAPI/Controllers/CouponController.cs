@@ -23,7 +23,6 @@ namespace CouponAPI.Controllers
             _response = new ResponseDTO();
         }
 
-        [Authorize]
         [HttpGet("{code}")]
         public async Task<object> GetCouponByCode(string code)
         {

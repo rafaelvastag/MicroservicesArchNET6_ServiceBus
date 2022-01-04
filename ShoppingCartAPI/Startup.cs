@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ShoppingCartAPI.Config;
 using ShoppingCartAPI.Context;
+using ShoppingCartAPI.Repositories;
 using ShoppingCartAPI.Repositories.Impl;
 using System;
 using System.Collections.Generic;
@@ -33,9 +34,11 @@ namespace ShoppingCartAPI
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddSingleton(mapper);
             services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<ICouponRepository, CouponRepository>();
             services.AddSingleton<IMessageBus, AzureServiceBusMessageBus>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
+            services.AddHttpClient<ICouponRepository, CouponRepository>(u => u.BaseAddress = new Uri(Configuration["ServicesUrl:CouponAPI"]));
             services.AddAuthentication("Bearer").AddJwtBearer("Bearer", options =>
             {
                 options.Authority = "https://localhost:44320/";

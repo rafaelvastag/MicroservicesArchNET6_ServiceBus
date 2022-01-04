@@ -1920,6 +1920,20 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "MessageBus/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Azure.Messaging.ServiceBus": "7.5.1",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/MessageBus.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MessageBus.dll": {}
+        }
       }
     }
   },
@@ -6722,6 +6736,11 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "MessageBus/1.0.0": {
+      "type": "project",
+      "path": "../MessageBus/MessageBus.csproj",
+      "msbuildProject": "../MessageBus/MessageBus.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6729,6 +6748,7 @@
       "AutoMapper >= 10.1.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
       "Azure.Messaging.ServiceBus >= 7.5.1",
+      "MessageBus >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
@@ -6769,7 +6789,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\rgvas\\source\\repos\\VastagRestaurantWithAzureTools\\MessageBus\\MessageBus.csproj": {
+              "projectPath": "C:\\Users\\rgvas\\source\\repos\\VastagRestaurantWithAzureTools\\MessageBus\\MessageBus.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
