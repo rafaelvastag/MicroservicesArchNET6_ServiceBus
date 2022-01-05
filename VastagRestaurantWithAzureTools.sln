@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentProcessor", "Payment
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentAPI", "PaymentAPI\PaymentAPI.csproj", "{099010E3-F024-4E05-8866-153D00C09B3B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email", "Email\Email.csproj", "{1DE27572-EAE8-4284-B32F-7B9D3E543EE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{099010E3-F024-4E05-8866-153D00C09B3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{099010E3-F024-4E05-8866-153D00C09B3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{099010E3-F024-4E05-8866-153D00C09B3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE27572-EAE8-4284-B32F-7B9D3E543EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE27572-EAE8-4284-B32F-7B9D3E543EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE27572-EAE8-4284-B32F-7B9D3E543EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE27572-EAE8-4284-B32F-7B9D3E543EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +91,7 @@ Global
 		{3CBA9E1C-D34A-4117-B09E-7D834E813CBD} = {28697B91-49D7-490E-87A3-065B72164D54}
 		{BA4B6B68-8287-412E-BF0B-4422AD19142C} = {3BA1390D-AF21-4192-89A9-E3AC85B893FF}
 		{099010E3-F024-4E05-8866-153D00C09B3B} = {28697B91-49D7-490E-87A3-065B72164D54}
+		{1DE27572-EAE8-4284-B32F-7B9D3E543EE1} = {28697B91-49D7-490E-87A3-065B72164D54}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0CC74F16-2DFF-4FB2-97EA-83CD3D08D225}

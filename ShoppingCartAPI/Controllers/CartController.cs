@@ -154,6 +154,10 @@ namespace ShoppingCartAPI.Controllers
                 checkoutHeader.CartDetails = cart.CartDetails;
                 // logic to add message to process order
                 await _messageBus.PublishMessage(checkoutHeader, "checkoutmessagetopic");
+                // using queue with topic forward
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutqueue");
+                // using queue without topic forward
+                await _messageBus.PublishMessage(checkoutHeader, "checkoutqueuewithoutforward");
 
             }
             catch (Exception ex)
